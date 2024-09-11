@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <button onclick="fetchData()">获取数据</button>
+  <div id="result"></div>
+
+  <script>
+    function fetchData() {
+      fetch('https://v2.jinrishici.com/info')
+       .then(response => response.json())
+       .then(data => {
+          document.getElementById('result').innerHTML = data.data.region;
+        })
+       .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+  </script>
+
+</body>
+
+</html>
